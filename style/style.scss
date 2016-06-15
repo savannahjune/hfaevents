@@ -1,0 +1,29 @@
+$font-stack: "SharpUnity","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+$hfa-light-grey: #F6F6F6;
+$hfa-white: #FFFFFF;
+
+
+body {
+  font: 100% $font-stack;
+  background-color: $hfa-light-grey;
+}
+
+.title {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  color: green;
+}
+
+#event-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $hfa-white;
+}

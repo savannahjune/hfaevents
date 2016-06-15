@@ -1,0 +1,11 @@
+{
+  "name": "hfaevents",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "moment": "^2.13.0",
+    "underscore": "^1.8.3"
+  }
+}
