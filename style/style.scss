@@ -1,6 +1,9 @@
 $font-stack: "SharpUnity","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
 $hfa-light-grey: #F6F6F6;
 $hfa-white: #FFFFFF;
+$hfa-blue: #6696C6;
+$hfa-light-blue: lighten($hfa-blue, 20%);
+$hfa-red: #E51B2D;
 
 
 body {
@@ -9,10 +12,17 @@ body {
 }
 
 .title {
-  font-size: 1.2em;
   display: flex;
   justify-content: center;
-  color: green;
+  color: $hfa-blue;
+}
+
+.large {
+  font-size: 1.3em;
+}
+
+.medium {
+  font-size: 1.2em;
 }
 
 #event-list-wrapper {
@@ -22,8 +32,42 @@ body {
 }
 
 .event-wrapper {
+  flex: 0.1;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  background-color: $hfa-white;
+  margin: 1% 10% 1% 10%;
+}
+
+.info-row {
+  padding: 5px;
+}
+
+.event-header {
+  flex: 0.2;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: $hfa-white;
+}
+
+.event-name {
+  flex: 0.6;
+}
+
+.event-time {
+  flex: 0.4;
+}
+
+.event-location {
+  flex: 0.2;
+}
+
+.event-description {
+  flex: 0.4;
+}
+
+.event-rsvp {
+  flex: 0.2;
+
+  background-color: $hfa-red;
 }
