@@ -1,13 +1,19 @@
 $(document).ready(function () {
 
+  var event_listitem_template_source   = $("#entry-template").html();
+  var event_listitem_template = Handlebars.compile(event_listitem_template_source);
+
   $.getJSON( "https://s3.amazonaws.com/interview-api-samples/events-results.json", function( data ) {
     var events, eventElements = [], chronologicalEvents;
     events = data.events;
     chronologicalEvents = _.sortBy(events, 'startDate');
     _.each(chronologicalEvents, function(event) {
-      eventElements.push( "<div class='event-wrapper'> <div class='event-name'>" + event.name + "</div>" +
-                          // "<div class='event-time'>" + new Date(event.startDate).toLocaleString() + "</div>");
-                          "<div class='event-time'>" + moment(event.startDate).format('LLLL') + "</div></div>");
+
+      var context = event;
+      context.startDatePretty =  moment(event.startDate).format('LLLL');
+      var event_item_html    = event_listitem_template(context);
+      eventElements.push(event_item_html);
+
     });
 
     $( "<div/>", {
