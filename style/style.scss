@@ -25,6 +25,14 @@ body {
   font-size: 4em;
 }
 
+.show {
+  display: inherit;
+}
+
+.hide {
+  display: none;
+}
+
 .button {
   border: 1px solid $hfa-white;
   border-radius: 5px;

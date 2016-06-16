@@ -11,6 +11,12 @@ body {
 .large {
   font-size: 4em; }
 
+.show {
+  display: inherit; }
+
+.hide {
+  display: none; }
+
 .button {
   border: 1px solid #FFFFFF;
   border-radius: 5px;
