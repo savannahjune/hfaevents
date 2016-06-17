@@ -26,7 +26,7 @@ body {
 }
 
 .show {
-  display: inherit;
+  display: flex;
 }
 
 .hide {
@@ -140,9 +140,15 @@ body {
   background-color: $hfa-red;
 }
 
-.event-details {
+.event-details-button {
   flex: 0.1;
   margin-right: 1%;
 
   background-color: $hfa-light-blue;
+}
+
+.event-details-wrapper {
+  // display: flex;
+  flex-direction: column;
+  line-height: 1.6em;
 }
