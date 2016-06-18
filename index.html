@@ -24,10 +24,10 @@
         <div class="event-wrapper">
           <div class="event-header info-row">
             <div class="event-name medium"> {{ name }} </div>
-            <div class="event-time"> {{ startDatePretty }} </div>
             <!-- display class can be either show or hide depending on RSVP -->
             <div class="event-attending {{ display }}" id="event-{{ id }}-banner" >Attending</div>
           </div>
+          <div class="event-time info-row"> {{ startDatePretty }} </div>
           <div class="event-location info-row">
             {{ locations.0.city }}, {{ locations.0.state }}
           </div>

@@ -11,6 +11,10 @@ body {
 .large {
   font-size: 4em; }
 
+.medium {
+  font-size: 1.7em;
+  font-weight: 600; }
+
 .show {
   display: flex; }
 
@@ -26,10 +30,6 @@ body {
   color: #FFFFFF; }
   .button:hover {
     cursor: pointer; }
-
-.medium {
-  font-size: 1.7em;
-  font-weight: 600; }
 
 #event-list-wrapper {
   display: flex;
@@ -56,10 +56,10 @@ body {
   flex-direction: row; }
 
 .event-name {
-  flex: 0.6; }
+  flex: 1; }
 
 .event-time {
-  flex: 0.4; }
+  flex: 0.2; }
 
 .event-attending {
   width: 100px;
@@ -90,16 +90,18 @@ body {
   line-height: 1.6em; }
 
 .event-buttons {
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  line-height: 1.4em;
+  letter-spacing: 0.1em; }
 
 .event-rsvp {
-  flex: 0.1;
+  flex: 0.2;
   background-color: #E51B2D; }
   .event-rsvp:hover {
     background: #b81524; }
 
 .event-details-button {
-  flex: 0.1;
+  flex: 0.2;
   margin-right: 1%;
   background-color: #b0c9e2; }
   .event-details-button:hover {

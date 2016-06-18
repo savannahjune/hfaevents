@@ -25,6 +25,11 @@ body {
   font-size: 4em;
 }
 
+.medium {
+  font-size: 1.7em;
+  font-weight: 600;
+}
+
 .show {
   display: flex;
 }
@@ -50,10 +55,6 @@ body {
   }
 }
 
-.medium {
-  font-size: 1.7em;
-  font-weight: 600;
-}
 
 #event-list-wrapper {
   display: flex;
@@ -87,11 +88,11 @@ body {
 }
 
 .event-name {
-  flex: 0.6;
+  flex: 1;
 }
 
 .event-time {
-  flex: 0.4;
+  flex: 0.2;
 }
 
 .event-attending {
@@ -138,10 +139,13 @@ body {
 
 .event-buttons {
   justify-content: flex-end;
+
+  line-height: 1.4em;
+  letter-spacing: 0.1em;
 }
 
 .event-rsvp {
-  flex: 0.1;
+  flex: 0.2;
 
   background-color: $hfa-red;
 
@@ -151,7 +155,7 @@ body {
 }
 
 .event-details-button {
-  flex: 0.1;
+  flex: 0.2;
   margin-right: 1%;
 
   background-color: $hfa-light-blue;

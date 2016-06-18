@@ -23,6 +23,10 @@ $(document).ready(function () {
         context.price = '$' + event.locations[0].tiers[0].price;
       }
 
+      if (event.locations[0].numberSpacesRemaining <= 0) {
+        console.log('no tickets remaining', event.id);
+      }
+
       // Retrieve localStorage to determine if voter has RVSP'd to event.
       var storedAttendance = loadAttendance(event.id);
       if (storedAttendance) {
@@ -125,4 +129,15 @@ function saveAttendance(eventId, isAttending) {
 function loadAttendance(eventId) {
   var isAttending = localStorage.getItem('event-' + eventId) === "true";
   return isAttending;
+}
+
+
+/**
+ * Checks if tickets are remaining.
+ *
+ * @param {String} eventId Unique id for event.
+ * @return {boolean} whether or not tickets remain for the event.
+ */
+function checkIfTicketsRemain(eventId) {
+
 }
