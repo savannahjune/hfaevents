@@ -105,7 +105,7 @@ function toggleRSVP(eventId) {
   $('#event-' + eventId + '-banner').toggleClass('hide');
 
   if (!previousAttendance) { // Voter had not joined yet.
-    $(buttonId).html('Attending');
+    $(buttonId).html('Cancel');
   } else {
     $(buttonId).html('Join');
   }
