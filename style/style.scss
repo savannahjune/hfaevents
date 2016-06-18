@@ -37,6 +37,7 @@ body {
 
 .hide {
   display: none;
+  background: white;
 }
 
 .button {
@@ -100,7 +101,7 @@ body {
   position: absolute !important;
   flex: 0.3;
   right: 0px;
-  width: 120px;
+  width: 114px;
   height: 56px;
 
   padding-top: 15px;
@@ -126,8 +127,8 @@ body {
   height: 0;
 
   border-bottom: 13px solid $hfa-white;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
+  border-left: 57px solid transparent;
+  border-right: 57px solid transparent;
 }
 
 .event-location {

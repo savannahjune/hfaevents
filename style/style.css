@@ -20,7 +20,8 @@ body {
   display: flex; }
 
 .hide {
-  display: none; }
+  display: none;
+  background: white; }
 
 .button {
   border: 1px solid #FFFFFF;
@@ -67,7 +68,7 @@ body {
   position: absolute !important;
   flex: 0.3;
   right: 0px;
-  width: 120px;
+  width: 114px;
   height: 56px;
   padding-top: 15px;
   background: #FCB825;
@@ -86,8 +87,8 @@ body {
   width: 0;
   height: 0;
   border-bottom: 13px solid #FFFFFF;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent; }
+  border-left: 57px solid transparent;
+  border-right: 57px solid transparent; }
 
 .event-location {
   flex: 0.2; }

@@ -26,7 +26,9 @@
           <div class="event-header info-row">
             <div class="event-name medium" id="event-{{ id }}-name">{{ name }}</div>
             <div class="event-attending {{ showAttending }}" id="event-{{ id }}-banner">
-              &nbsp;Attending
+              <!-- TODO: fix this hack: &nbsp; added due to display none not 
+                  allocating space correctly and not centering attending -->
+              &ensp;Attending
             </div>
           </div>
           <div class="event-time info-row"> {{ startDatePretty }} </div>
