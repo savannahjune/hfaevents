@@ -71,7 +71,7 @@ body {
   padding: 5px;
 
   background-color: $hfa-white;
-  margin: 1% 10% 1% 10%;
+  margin: 2% 10% 2% 10%;
 
   padding: 1%;
 }
@@ -89,8 +89,7 @@ body {
 }
 
 .event-name {
-  flex: 1;
-  margin-right: 100px; // TODO: only add when RSVP is showing.
+  flex: 0.7;
 }
 
 .event-time {
@@ -98,13 +97,10 @@ body {
 }
 
 .event-attending {
-  -webkit-transition-timing-function: linear; /* Safari and Chrome */
-  transition-timing-function: linear;
-  -webkit-transition: display 2s;
-
   position: absolute !important;
+  flex: 0.3;
   right: 0px;
-  width: 100px;
+  width: 120px;
   height: 56px;
 
   padding-top: 15px;
@@ -113,8 +109,12 @@ body {
   color: white;
 
   text-align: center;
-  // letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  font-size: 1.2em;
 }
+
 .event-attending:after {
   content: "";
 
@@ -126,8 +126,8 @@ body {
   height: 0;
 
   border-bottom: 13px solid $hfa-white;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
 }
 
 .event-location {
@@ -147,28 +147,29 @@ body {
 
   line-height: 1.5em;
   letter-spacing: 0.1em;
-  font-size: 1.4em;
+  font-size: 1.2em;
+
+  cursor: pointer;
 }
 
 .event-rsvp {
   flex: 0.2;
 
+  right: 0px;
+  cursor: pointer;
+
   background-color: $hfa-red;
 
   &:hover {
-    background: lighten($hfa-red, 10%);
+   background: lighten($hfa-red, 10%);
   }
 }
 
 .event-details-button {
-  flex: 0.2;
+  flex: 1;
   margin-right: 1%;
-
-  background-color: $hfa-dark-blue;
-
-  &:hover {
-    background: lighten($hfa-dark-blue, 10%);
-  }
+  align-self: flex-start;
+  color : $hfa-blue;
 }
 
 .event-details-wrapper {
@@ -176,8 +177,37 @@ body {
   line-height: 1.6em;
 }
 
+.event-details-button {
+  > .fa-chevron-down, .fa-chevron-up {
+    margin-right: 5px;
+  }
+}
+
 @media only screen and (max-width: 750px) {
-  .event-rsvp, .event-details-button {
+  .event-attending {
+    width: 80px;
+    height: 56px;
+
+    line-height: 1.5em;
+    letter-spacing: 0em;
+    font-size: 1em;
+  }
+
+  .event-attending:after {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+  }
+
+  .event-description {
+    width: 100%;
+  }
+
+  .event-buttons {
+    margin-top: 5px;
+  }
+
+  .event-details-button, .event-rsvp {
     flex: 0.5;
   }
+
 }

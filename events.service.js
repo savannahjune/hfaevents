@@ -1,5 +1,9 @@
 var eventAttendance = {};
 
+Handlebars.registerHelper('ternary', function(test, yes, no) {
+    return test ? yes : no;
+});
+
 $(document).ready(function () {
   var eventTemplateSource, eventItemTemplate,
     eventURL = 'https://s3.amazonaws.com/interview-api-samples/events-results.json';
@@ -23,25 +27,20 @@ $(document).ready(function () {
         context.price = '$' + event.locations[0].tiers[0].price;
       }
 
-      // if (event.locations[0].numberSpacesRemaining <= 0) {
-      //   console.log('no tickets remaining', event.id);
-      // }
-
       // Retrieve localStorage to determine if voter has RVSP'd to event.
       var storedAttendance = loadAttendance(event.id);
       if (storedAttendance) {
+        context.attending = true;
         context.showAttending = 'show';
       } else {
+        context.attending = false;
         context.showAttending = 'hide';
       }
 
-      if (!event.official) { // Hide offical event label if not official.
-        context.showOfficial = 'hide';
-      }
+      context.official = event.official;
 
       var eventItemHTML = eventItemTemplate(context);
       eventElements.push(eventItemHTML);
-
     });
 
 
@@ -53,6 +52,7 @@ $(document).ready(function () {
 
     // Add click listener on RSVP button.
     $('.event-rsvp').click(function(event){
+      console.log('.event-rsvp click');
       // eventId is appended to id so we slice off the string to get id's index.
       var sliceIndex = 'event-rsvp-button-'.length;
       toggleRSVP(event.currentTarget.id.slice(sliceIndex));
@@ -81,10 +81,10 @@ function toggleDetails(eventId) {
 
   $('#event-' + eventId + '-details').slideToggle();
 
-  if (buttonLabel === 'Details') { // Details were not previously showing.
-    $(buttonId).html('Hide Details');
+  if (buttonLabel === '<i class="fa fa-chevron-down" aria-hidden="true"></i>More') { // Details were not previously showing.
+    $(buttonId).html('<i class="fa fa-chevron-up" aria-hidden="true"></i>Less');
   } else {
-    $(buttonId).html('Details');
+    $(buttonId).html('<i class="fa fa-chevron-down" aria-hidden="true"></i>More');
   }
 }
 
@@ -95,6 +95,7 @@ function toggleDetails(eventId) {
  * @param {String} eventId Unique id for event.
  */
 function toggleRSVP(eventId) {
+  console.log(eventId);
   var previousAttendance = loadAttendance(eventId),
       buttonId = '#event-rsvp-button-' + eventId;
 
@@ -134,15 +135,4 @@ function saveAttendance(eventId, isAttending) {
 function loadAttendance(eventId) {
   var isAttending = localStorage.getItem('event-' + eventId) === "true";
   return isAttending;
-}
-
-
-/**
- * Checks if tickets are remaining.
- *
- * @param {String} eventId Unique id for event.
- * @return {boolean} whether or not tickets remain for the event.
- */
-function checkIfTicketsRemain(eventId) {
-
 }

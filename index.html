@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
     <link rel="shortcut icon" href="hfa-arrow.png" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="style/style.css" type="text/css" rel="stylesheet">
   </head>
 
@@ -23,10 +24,9 @@
     <script id="event-template" type="text/x-handlebars-template">
         <div class="event-wrapper">
           <div class="event-header info-row">
-            <!-- icon is Hillary Clinton by Lorie Shaull from the Noun Project -->
-            <div class="event-name medium">{{ name }}</div>
-            <div class="event-attending {{ showAttending }}" id="event-{{ id }}-banner" >
-              &nbsp;&nbsp;&nbsp;Attending
+            <div class="event-name medium" id="event-{{ id }}-name">{{ name }}</div>
+            <div class="event-attending {{ showAttending }}" id="event-{{ id }}-banner">
+              &nbsp;Attending
             </div>
           </div>
           <div class="event-time info-row"> {{ startDatePretty }} </div>
@@ -35,20 +35,47 @@
           </div>
           <div class="event-description info-row"> {{ description }} </div>
           <div id="event-{{ id }}-details" class="event-details-wrapper info-row hide">
-            <div class="event-price"> {{ price }} </div>
-            <div class="event-official {{ showOfficial }}">
+            <div class="event-price"><i class="fa fa-fw fa-usd" aria-hidden="true"></i> {{ price }} </div>
+            {{#if official}}
+            <div class="event-official">
               <img src="hfa-arrow.png" height="20px" width="20px"> Official Event
             </div>
-            <div class="event-tickets"> Tickets Remaining: {{ locations.0.numberSpacesRemaining }} </div>
-            <div class="event-location-name"> {{ locations.0.name }} </div>
-            <div class="event-location-address-one"> {{ locations.0.address1 }} </div>
-            <div class="event-location-address-two"> {{ locations.0.address2 }} </div>
-            <div class="event-location-address-three"> {{ locations.0.city }}, {{ locations.0.state }} {{ locations.0.postalCode }} </div>
+            {{/if}}
+            <!-- Assuming there are unlimited tickets available if number of tickets
+                available not supplied, API documentation would clear this question up -->
+            <div class="event-tickets">
+              <i class="fa fa-fw fa-ticket" aria-hidden="true"></i>
+              {{ ternary locations.0.numberSpacesRemaining locations.0.numberSpacesRemaining "Plenty of" }} tickets available</div>
+            {{#if locations.0.name}}
+            <div class="event-location-name">
+              <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i>
+              {{ locations.0.name }} </div>
+            {{/if}}
+            {{#if locations.0.address1}}
+            <div class="event-location-address-one">
+              <i class="fa fa-fw {{ternary locations.0.name "" "fa-map-marker"}}" aria-hidden="true"></i>
+              {{ locations.0.address1 }} </div>
+            {{/if}}
+            {{#if locations.0.address2}}
+            <div class="event-location-address-two">
+              <i class="fa fa-fw" aria-hidden="true"></i>
+              {{ locations.0.address2 }} </div>
+            {{/if}}
+            {{#if locations.0.city}}
+            <div class="event-location-address-three">
+              <i class="fa fa-fw" aria-hidden="true"></i>
+              {{ locations.0.city }}, {{ locations.0.state }} {{ locations.0.postalCode }} </div>
+            {{/if}}
             <!-- <div> Map this location. </div> -->
           </div>
           <div class="event-buttons">
-            <div id="event-details-button-{{ id }}" value="Details" class="button event-details-button">Details</div>
-            <div id="event-rsvp-button-{{ id }}" value="Join" class="button event-rsvp">Join</div>
+            <div id="event-details-button-{{ id }}" class="event-details-button">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              More
+            </div>
+            <div id="event-rsvp-button-{{ id }}" class="button event-rsvp">
+              {{ternary attending "Cancel" "Join"}}
+            </div>
           </div>
         </div>
     </script>
