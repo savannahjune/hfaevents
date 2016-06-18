@@ -110,12 +110,14 @@ function toggleDetails(eventId) {
   var buttonId = '#event-details-button-' + eventId,
       buttonLabel = $(buttonId).html();
 
+  var isExpanded = $(buttonId).find('i').hasClass('fa-chevron-up');
+
   $('#event-' + eventId + '-details').slideToggle();
 
-  if (buttonLabel === '<i class="fa fa-chevron-down" aria-hidden="true"></i>More') { // Details were not previously showing.
-    $(buttonId).html('<i class="fa fa-chevron-up" aria-hidden="true"></i>Less');
-  } else {
+  if (isExpanded) { // Details were not previously showing.
     $(buttonId).html('<i class="fa fa-chevron-down" aria-hidden="true"></i>More');
+  } else {
+    $(buttonId).html('<i class="fa fa-chevron-up" aria-hidden="true"></i>Less');
   }
 }
 
