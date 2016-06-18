@@ -79,9 +79,7 @@ function toggleDetails(eventId) {
   var buttonId = '#event-details-button-' + eventId,
       buttonLabel = $(buttonId).html();
 
-  $('#event-' + eventId + '-details').toggleClass('show');
-  $('#event-' + eventId + '-details').toggleClass('hide');
-
+  $('#event-' + eventId + '-details').slideToggle();
 
   if (buttonLabel === 'Details') { // Details were not previously showing.
     $(buttonId).html('Hide Details');

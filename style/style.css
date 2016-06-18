@@ -6,13 +6,14 @@ body {
   display: flex;
   justify-content: center;
   color: #254DA3;
+  padding: 40px;
   letter-spacing: 0.1em; }
 
 .large {
   font-size: 4em; }
 
 .medium {
-  font-size: 1.7em;
+  font-size: 2em;
   font-weight: 600; }
 
 .show {
@@ -73,7 +74,6 @@ body {
   width: 100px;
   height: 56px;
   padding-top: 15px;
-  position: relative;
   background: #FCB825;
   color: white;
   text-align: center; }
@@ -95,25 +95,27 @@ body {
 .event-description {
   flex: 0.4;
   width: 75%;
-  line-height: 2em; }
+  line-height: 1.5em;
+  margin-bottom: 5px; }
 
 .event-buttons {
   justify-content: flex-end;
-  line-height: 1.4em;
-  letter-spacing: 0.1em; }
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  font-size: 1.4em; }
 
 .event-rsvp {
   flex: 0.2;
   background-color: #E51B2D; }
   .event-rsvp:hover {
-    background: #b81524; }
+    background: #ea4957; }
 
 .event-details-button {
   flex: 0.2;
   margin-right: 1%;
-  background-color: #b0c9e2; }
+  background-color: #254DA3; }
   .event-details-button:hover {
-    background: #8bb0d4; }
+    background: #2e61cd; }
 
 .event-details-wrapper {
   flex-direction: column;
