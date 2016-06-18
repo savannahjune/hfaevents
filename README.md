@@ -24,8 +24,6 @@ Displays HFA events chronologically and allows user to mark an event as attendin
 
 2) Drag the index.html file into any browser to begin using!
 
-3) If you want to continue working on the project, run npm install from the root folder to install Sass and grunt. Then run grunt to have sass compile into css on change.
-
 
 ###### Future Plans:
 * Add tests when using an actual database to ensure that RSVP is added to the logged in user's information.
