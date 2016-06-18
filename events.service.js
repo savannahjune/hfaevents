@@ -45,6 +45,7 @@ function buildTemplate(chronologicalEvents) {
 
   _.each(chronologicalEvents, function(event) {
     var context = event;
+
     context.startDatePretty =  moment(event.startDate).format('LLLL');
 
     // Mark events with price of 0 as free.
@@ -53,6 +54,13 @@ function buildTemplate(chronologicalEvents) {
     } else {
       context.price = '$' + event.locations[0].tiers[0].price;
     }
+
+     /** NB: All examples in JSON have one location, would need to handle iterating
+       * through all locations if API indicates that multiples are possible. This
+       * iterating would also be needed in the template.
+       */
+    context.mapURL = 'https://maps.google.com/?q=' +event.locations[0].address1 + '+' +
+      event.locations[0].city + '+' + event.locations[0].state;
 
     // Retrieve localStorage to determine if voter has RVSP'd to event.
     var storedAttendance = loadAttendance(event.id);

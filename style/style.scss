@@ -126,6 +126,8 @@ body {
   letter-spacing: 0.1em;
   font-size: 1.2em;
 
+  margin-top: 2%;
+
   cursor: pointer;
 }
 
@@ -151,6 +153,15 @@ body {
 
 .event-details-wrapper {
   line-height: 1.6em;
+}
+
+.event-mapurl {
+  text-decoration: none;
+  color: $hfa-blue;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .event-details-button {

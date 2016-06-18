@@ -46,7 +46,7 @@
             <div class="event-tickets">
               <i class="fa fa-fw fa-ticket" aria-hidden="true"></i>
               {{ ternary locations.0.numberSpacesRemaining locations.0.numberSpacesRemaining "Plenty of" }} tickets available</div>
-            {{#if locations.0.name}}
+            {{#if locations.0.name }}
             <div class="event-location-name">
               <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i>
               {{ locations.0.name }} </div>
@@ -66,7 +66,11 @@
               <i class="fa fa-fw" aria-hidden="true"></i>
               {{ locations.0.city }}, {{ locations.0.state }} {{ locations.0.postalCode }} </div>
             {{/if}}
-            <!-- <div> Map this location. </div> -->
+            {{#if locations.0.city}}
+            <div class="event-location-url">
+              <i class="fa fa-fw" aria-hidden="true"></i>
+              <a class="event-mapurl" target="_blank" href="{{ mapURL }}">Map this location.</a></div>
+            {{/if}}
           </div>
           <div class="event-buttons">
             <div id="event-details-button-{{ id }}" class="event-details-button">
