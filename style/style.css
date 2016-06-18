@@ -90,7 +90,7 @@ body {
   cursor: pointer; }
 
 .event-rsvp {
-  width: 50%;
+  width: 20%;
   position: absolute;
   right: 0px;
   bottom: -5px;
@@ -139,6 +139,8 @@ body {
 
   .event-buttons {
     margin-top: 5px;
-    margin-bottom: 5px; } }
+    margin-bottom: 5px; }
+  .event-rsvp {
+    width: 50%;} }
 
 /*# sourceMappingURL=style.css.map */
