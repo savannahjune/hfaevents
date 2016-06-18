@@ -81,9 +81,6 @@ body {
   margin-right: 120px;
 }
 
-.event-time {
-}
-
 .event-attending {
   position: absolute !important;
   top: 0px;
@@ -116,9 +113,6 @@ body {
   border-bottom: 13px solid $hfa-white;
   border-left: 57px solid transparent;
   border-right: 57px solid transparent;
-}
-
-.event-location {
 }
 
 .event-description {
@@ -166,6 +160,10 @@ body {
 }
 
 @media only screen and (max-width: 750px) {
+  .title {
+    margin-left: 0%;
+  }
+
   .event-wrapper {
     margin: 3% 0% 3% 00%;
   }
@@ -190,9 +188,7 @@ body {
 
   .event-buttons {
     margin-top: 5px;
-  }
-
-  .event-details-button, .event-rsvp {
+    margin-bottom: 5px;
   }
 
 }
