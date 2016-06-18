@@ -111,4 +111,8 @@ body {
   flex-direction: column;
   line-height: 1.6em; }
 
+@media only screen and (max-width: 750px) {
+  .event-rsvp, .event-details-button {
+    flex: 0.5; } }
+
 /*# sourceMappingURL=style.css.map */

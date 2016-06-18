@@ -23,21 +23,28 @@ $(document).ready(function () {
         context.price = '$' + event.locations[0].tiers[0].price;
       }
 
-      if (event.locations[0].numberSpacesRemaining <= 0) {
-        console.log('no tickets remaining', event.id);
-      }
+      // if (event.locations[0].numberSpacesRemaining <= 0) {
+      //   console.log('no tickets remaining', event.id);
+      // }
 
       // Retrieve localStorage to determine if voter has RVSP'd to event.
       var storedAttendance = loadAttendance(event.id);
       if (storedAttendance) {
-        context.display = 'show';
+        context.showAttending = 'show';
       } else {
-        context.display = 'hide';
+        context.showAttending = 'hide';
       }
+
+      if (!event.official) { // Hide offical event label if not official.
+        context.showOfficial = 'hide';
+      }
+
       var eventItemHTML = eventItemTemplate(context);
       eventElements.push(eventItemHTML);
 
     });
+
+
 
     $( '<div/>', {
       'id': 'event-list-wrapper',
@@ -60,6 +67,18 @@ $(document).ready(function () {
   });
 
 });
+
+
+/**
+ * Hides the offical event div if the event is not an official event.
+ *
+ * @param {String} eventId Unique id for event.
+ */
+// function isOfficial(event) {
+//   if (!event.official) { // Details were not previously showing.
+//     $('#event-official-' + event.id).addClass('hide');
+//   }
+// }
 
 
 /**
@@ -98,7 +117,7 @@ function toggleRSVP(eventId) {
   $('#event-' + eventId + '-banner').toggleClass('hide');
 
   if (!previousAttendance) { // Voter had not joined yet.
-    $(buttonId).html('Cancel');
+    $(buttonId).html('Attending');
   } else {
     $(buttonId).html('Join');
   }
