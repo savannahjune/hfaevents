@@ -23,6 +23,7 @@
     <script id="event-template" type="text/x-handlebars-template">
         <div class="event-wrapper">
           <div class="event-header info-row">
+            <!-- icon is Hillary Clinton by Lorie Shaull from the Noun Project -->
             <div class="event-name medium">{{ name }}</div>
             <div class="event-attending {{ showAttending }}" id="event-{{ id }}-banner" >
               Attending
@@ -37,19 +38,17 @@
             <div id="event-details-button-{{ id }}" value="Details" class="button event-details-button">Details</div>
             <div id="event-rsvp-button-{{ id }}" value="Join" class="button event-rsvp">Join</div>
           </div>
-          <div class="event-details-wrapper hide">
+          <div id="event-{{ id }}-details" class="event-details-wrapper hide">
               <div class="event-price"> {{ price }} </div>
-              <div id="event-official-{{ id }}" class="event-official {{ showOfficial }}">
+              <div class="event-official {{ showOfficial }}">
                 <img src="hfa-arrow.png" height="20px" width="20px"> Official Event
               </div>
-              <!-- if no tickets remaining -->
               <div class="event-tickets"> Tickets Remaining: {{ locations.0.numberSpacesRemaining }} </div>
               <div class="event-location-name"> {{ locations.0.name }} </div>
               <div class="event-location-address-one"> {{ locations.0.address1 }} </div>
               <div class="event-location-address-two"> {{ locations.0.address2 }} </div>
               <div class="event-location-address-three"> {{ locations.0.city }}, {{ locations.0.state }} {{ locations.0.postalCode }} </div>
               <!-- <div> Map this location. </div> -->
-
           </div>
         </div>
     </script>

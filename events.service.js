@@ -70,18 +70,6 @@ $(document).ready(function () {
 
 
 /**
- * Hides the offical event div if the event is not an official event.
- *
- * @param {String} eventId Unique id for event.
- */
-// function isOfficial(event) {
-//   if (!event.official) { // Details were not previously showing.
-//     $('#event-official-' + event.id).addClass('hide');
-//   }
-// }
-
-
-/**
  * Shows/hides details based on voter's click on details button and changes
  * label on details button.
  *
