@@ -42,12 +42,16 @@ $(document).ready(function () {
 
     // Add click listener on RSVP button.
     $('.event-rsvp').click(function(event){
-      toggleRSVP(event.currentTarget.id);
+      // eventId is appended to id so we slice off the string to get id's index.
+      var sliceIndex = 'event-rsvp-button-'.length;
+      toggleRSVP(event.currentTarget.id.slice(sliceIndex));
     });
 
     // Add click listener on details button.
-    $('.event-details-button').click(function(event){
-      toggleDetails(event.currentTarget.id);
+    $('.event-details-button').click(function(event, elem){
+      // eventId is appended to id so we slice off the string to get id's index.
+      var sliceIndex = 'event-details-button-'.length;
+      toggleDetails(event.currentTarget.id.slice(sliceIndex));
     });
   });
 
@@ -55,14 +59,26 @@ $(document).ready(function () {
 
 
 /**
- * Shows/hides details based on voter's click on details button.
+ * Shows/hides details based on voter's click on details button and changes
+ * label on details button.
  *
  * @param {String} eventId Unique id for event.
  */
 function toggleDetails(eventId) {
+  var buttonId = '#event-details-button-' + eventId,
+      buttonLabel = $(buttonId).html();
+
   $('#event-' + eventId + '-details').toggleClass('show');
   $('#event-' + eventId + '-details').toggleClass('hide');
+
+
+  if (buttonLabel === 'Details') { // Details were not previously showing.
+    $(buttonId).html('Hide Details');
+  } else {
+    $(buttonId).html('Details');
+  }
 }
+
 /**
  * Toggles voter's attendance for an event. We save this in localStorage
  * for now, but in a real-world situation this would be saved in a database.
@@ -70,12 +86,20 @@ function toggleDetails(eventId) {
  * @param {String} eventId Unique id for event.
  */
 function toggleRSVP(eventId) {
-  var previousAttendance = loadAttendance(eventId);
+  var previousAttendance = loadAttendance(eventId),
+      buttonId = '#event-rsvp-button-' + eventId;
 
-  saveAttendance(eventId, !previousAttendance);
 
   $('#event-' + eventId + '-banner').toggleClass('show');
   $('#event-' + eventId + '-banner').toggleClass('hide');
+
+  if (!previousAttendance) { // Voter had not joined yet.
+    $(buttonId).html('Cancel');
+  } else {
+    $(buttonId).html('Join');
+  }
+
+  saveAttendance(eventId, !previousAttendance);
 }
 
 

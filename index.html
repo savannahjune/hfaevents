@@ -33,8 +33,8 @@
           </div>
           <div class="event-description info-row"> {{ description }} </div>
           <div class="event-buttons">
-            <div id="{{ id }}" class="button event-details-button">Details</div>
-            <div id="{{ id }}" class="button event-rsvp">Join</div>
+            <div id="event-details-button-{{ id }}" value="Details" class="button event-details-button">Details</div>
+            <div id="event-rsvp-button-{{ id }}" value="Join" class="button event-rsvp">Join</div>
           </div>
           <div id="event-{{ id }}-details" class="event-details-wrapper hide">
               <div class="event-price"> {{ price }} </div>

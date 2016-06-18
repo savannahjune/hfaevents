@@ -42,6 +42,12 @@ body {
   justify-content: center;
 
   color: $hfa-white;
+
+  &:hover {
+    // background: $color_white_1;
+    // color: $color_omnity-green;
+    cursor: pointer;
+  }
 }
 
 .medium {
@@ -138,6 +144,10 @@ body {
   flex: 0.1;
 
   background-color: $hfa-red;
+
+  &:hover {
+    background: darken($hfa-red, 10%);
+  }
 }
 
 .event-details-button {
@@ -145,6 +155,10 @@ body {
   margin-right: 1%;
 
   background-color: $hfa-light-blue;
+
+  &:hover {
+    background: darken($hfa-light-blue, 10%);
+  }
 }
 
 .event-details-wrapper {
