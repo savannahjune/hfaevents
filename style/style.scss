@@ -14,10 +14,9 @@ body {
 }
 
 .title {
-  display: flex;
-  justify-content: center;
+  text-align: left;
+  margin-left: 10%;
   color: $hfa-dark-blue;
-  padding: 40px;
 
   letter-spacing: 0.1em;
 }
@@ -32,7 +31,7 @@ body {
 }
 
 .show {
-  display: flex;
+  display: block;
 }
 
 .hide {
@@ -45,8 +44,7 @@ body {
   border-radius: 5px;
   padding: 5px;
 
-  display: flex;
-  justify-content: center;
+  text-align: center;
 
   color: $hfa-white;
 
@@ -57,16 +55,10 @@ body {
 
 
 #event-list-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
 .event-wrapper {
-  flex: 0.1;
-  display: flex;
-  flex-direction: column;
-
   border: 1px solid $hfa-white;
   border-radius: 5px;
   padding: 5px;
@@ -82,24 +74,19 @@ body {
 }
 
 .event-header, .event-buttons {
-  flex: 0.2;
-  display: flex;
-  flex-direction: row;
-
   position: relative;
 }
 
 .event-name {
-  flex: 0.7;
+  margin-right: 120px;
 }
 
 .event-time {
-  flex: 0.2;
 }
 
 .event-attending {
   position: absolute !important;
-  flex: 0.3;
+  top: 0px;
   right: 0px;
   width: 114px;
   height: 56px;
@@ -132,20 +119,15 @@ body {
 }
 
 .event-location {
-  flex: 0.2;
 }
 
 .event-description {
-  flex: 0.4;
-
   width: 75%;
   line-height: 1.5em;
   margin-bottom: 5px;
 }
 
 .event-buttons {
-  justify-content: flex-end;
-
   line-height: 1.5em;
   letter-spacing: 0.1em;
   font-size: 1.2em;
@@ -154,27 +136,26 @@ body {
 }
 
 .event-rsvp {
-  flex: 0.2;
+  width: 50%;
 
+  position:absolute;
   right: 0px;
-  cursor: pointer;
-
+  bottom: -5px;
+  clear:none;
   background-color: $hfa-red;
 
   &:hover {
-   background: lighten($hfa-red, 10%);
+    cursor: pointer;
+    background: lighten($hfa-red, 10%);
   }
 }
 
 .event-details-button {
-  flex: 1;
   margin-right: 1%;
-  align-self: flex-start;
   color : $hfa-blue;
 }
 
 .event-details-wrapper {
-  flex-direction: column;
   line-height: 1.6em;
 }
 
@@ -185,6 +166,10 @@ body {
 }
 
 @media only screen and (max-width: 750px) {
+  .event-wrapper {
+    margin: 3% 0% 3% 00%;
+  }
+
   .event-attending {
     width: 80px;
     height: 56px;
@@ -208,7 +193,6 @@ body {
   }
 
   .event-details-button, .event-rsvp {
-    flex: 0.5;
   }
 
 }

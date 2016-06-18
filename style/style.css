@@ -3,10 +3,9 @@ body {
   background-color: #F6F6F6; }
 
 .title {
-  display: flex;
-  justify-content: center;
+  text-align: left;
+  margin-left: 10%;
   color: #254DA3;
-  padding: 40px;
   letter-spacing: 0.1em; }
 
 .large {
@@ -17,7 +16,7 @@ body {
   font-weight: 600; }
 
 .show {
-  display: flex; }
+  display: block; }
 
 .hide {
   display: none;
@@ -27,21 +26,15 @@ body {
   border: 1px solid #FFFFFF;
   border-radius: 5px;
   padding: 5px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   color: #FFFFFF; }
   .button:hover {
     cursor: pointer; }
 
 #event-list-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center; }
 
 .event-wrapper {
-  flex: 0.1;
-  display: flex;
-  flex-direction: column;
   border: 1px solid #FFFFFF;
   border-radius: 5px;
   padding: 5px;
@@ -53,20 +46,14 @@ body {
   padding: 5px; }
 
 .event-header, .event-buttons {
-  flex: 0.2;
-  display: flex;
-  flex-direction: row;
   position: relative; }
 
 .event-name {
-  flex: 0.7; }
-
-.event-time {
-  flex: 0.2; }
+  margin-right: 120px; }
 
 .event-attending {
   position: absolute !important;
-  flex: 0.3;
+  top: 0px;
   right: 0px;
   width: 114px;
   height: 56px;
@@ -90,44 +77,42 @@ body {
   border-left: 57px solid transparent;
   border-right: 57px solid transparent; }
 
-.event-location {
-  flex: 0.2; }
-
 .event-description {
-  flex: 0.4;
   width: 75%;
   line-height: 1.5em;
   margin-bottom: 5px; }
 
 .event-buttons {
-  justify-content: flex-end;
   line-height: 1.5em;
   letter-spacing: 0.1em;
   font-size: 1.2em;
   cursor: pointer; }
 
 .event-rsvp {
-  flex: 0.2;
+  width: 50%;
+  position: absolute;
   right: 0px;
-  cursor: pointer;
+  bottom: -5px;
+  clear: none;
   background-color: #E51B2D; }
   .event-rsvp:hover {
+    cursor: pointer;
     background: #ea4957; }
 
 .event-details-button {
-  flex: 1;
   margin-right: 1%;
-  align-self: flex-start;
   color: #6696C6; }
 
 .event-details-wrapper {
-  flex-direction: column;
   line-height: 1.6em; }
 
 .event-details-button > .fa-chevron-down, .event-details-button .fa-chevron-up {
   margin-right: 5px; }
 
 @media only screen and (max-width: 750px) {
+  .event-wrapper {
+    margin: 3% 0% 3% 00%; }
+
   .event-attending {
     width: 80px;
     height: 56px;
@@ -143,9 +128,6 @@ body {
     width: 100%; }
 
   .event-buttons {
-    margin-top: 5px; }
-
-  .event-details-button, .event-rsvp {
-    flex: 0.5; } }
+    margin-top: 5px; } }
 
 /*# sourceMappingURL=style.css.map */
